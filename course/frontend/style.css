@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    background: linear-gradient(135deg, #1a1133 0%, #3b2566 100%);
+    min-height: 100vh;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-card {
+    background: rgba(43, 29, 74, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid #8a4af5;
+}
+
+.auth-card h1 {
+    font-size: 2.5rem;
+    color: #d4a5ff;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(212, 165, 255, 0.7);
+}
+
+.nav-tabs .nav-link {
+    color: #e0d4ff;
+    font-weight: 700;
+}
+
+.nav-tabs .nav-link.active {
+    color: #fff;
+    border-bottom: 4px solid #8a4af5;
+    background: rgba(138, 74, 245, 0.2);
+}
+
+.btn-primary, .btn-success, .btn-warning, .btn-danger, .btn-info {
+    background: #8a4af5;
+    border: none;
+    border-radius: 25px;
+    font-weight: 700;
+    color: #fff;
+    padding: 10px 20px;
+    transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(138, 74, 245, 0.5);
+}
+
+.btn-primary:hover, .btn-success:hover, .btn-warning:hover, .btn-danger:hover, .btn-info:hover {
+    background: #a56bff;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(165, 107, 255, 0.7);
+}
+
+.btn-danger {
+    background: #6b1d33;
+}
+
+.btn-danger:hover {
+    background: #8c2a44;
+}
+
+.navbar {
+    background: #1a1133;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-brand {
+    color: #d4a5ff;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(212, 165, 255, 0.5);
+    margin: 0;
+}
+
+.task-card {
+    background: rgba(43, 29, 74, 0.9);
+    border-radius: 15px;
+    transition: transform 0.2s, box-shadow 0.3s;
+    margin-bottom: 20px;
+    border: 2px solid #8a4af5;
+}
+
+.task-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(138, 74, 245, 0.6);
+}
+
+.task-card .card-body {
+    padding: 25px;
+}
+
+.task-card .card-title {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.task-card .card-text {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.task-card .text-muted {
+    color: #e0d4ff;
+}
+
+.task-card .text-danger {
+    color: #ff6666;
+}
+
+.task-card .text-success {
+    color: #d4a5ff;
+}
+
+.task-card .text-warning {
+    color: #e0b3ff;
+}
+
+.task-card .btn {
+    margin-right: 10px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    background: rgba(43, 29, 74, 0.9);
+}
+
+.form-control, .form-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #8a4af5;
+    border-radius: 12px;
+    color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #a56bff;
+    box-shadow: 0 0 15px rgba(165, 107, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: #d4a5ff;
+}
+
+.form-label {
+    color: #e0d4ff;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #3b2566 0%, #6b48a8 100%);
+    border: 2px solid #8a4af5;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease-out;
+}
+
+.modal-header {
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: #d4a5ff;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(212, 165, 255, 0.5);
+}
+
+.modal-body {
+    padding: 25px;
+    color: #fff;
+}
+
+.edit-modal-content {
+    background: linear-gradient(135deg, #6b48a8 0%, #9b6bff 100%);
+    border: 3px solid #d4a5ff;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(138, 74, 245, 0.7);
+}
+
+.edit-modal-content .btn-warning {
+    background: #ff7e5f;
+}
+
+.edit-modal-content .btn-warning:hover {
+    background: #feb47b;
+}
+
+#taskMessage {
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(43, 29, 74, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.text-muted {
+    color: #e0d4ff !important;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .auth-card, .modal-content {
+        max-width: 100%;
+        border-radius: 15px;
+    }
+    .task-card {
+        margin-bottom: 15px;
+    }
+}

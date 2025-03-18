@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeadLines | Ваши задачи</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<script defer src="bundle.js"></script></head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#">DeadLines</a>
+        <button id="logout" class="btn btn-outline-danger ms-auto"><i class="fas fa-sign-out-alt me-2"></i>Выйти</button>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="mb-4 animate__animated animate__fadeIn">Ваши задачи</h2>
+    <div id="taskList" class="row mb-5"></div>
+    <p id="taskMessage" class="text-center"></p>
+
+    <button id="addTaskBtn" class="btn btn-primary mb-4"><i class="fas fa-plus me-2"></i>Добавить задачу</button>
+
+    <!-- Форма добавления задачи -->
+    <div class="modal fade" id="createTaskCard" tabindex="-1" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Добавить задачу</h3>
+                    <button type="button" id="cancelCreateBtn" class="btn-close" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="createTaskForm">
+                        <div class="mb-3">
+                            <label for="title" class="form-label"><i class="fas fa-heading me-2"></i>Заголовок</label>
+                            <input type="text" class="form-control" id="title" placeholder="Введите заголовок" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="content" class="form-label"><i class="fas fa-align-left me-2"></i>Описание</label>
+                            <textarea class="form-control" id="content" rows="3" placeholder="Опишите задачу" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="deadline" class="form-label"><i class="fas fa-calendar-alt me-2"></i>Дедлайн</label>
+                            <input type="datetime-local" class="form-control" id="deadline" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100"><i class="fas fa-plus me-2"></i>Создать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для просмотра задачи -->
+    <div class="modal fade" id="taskModal" tabindex="-1" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" id="closeModalBtn" class="btn-close" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Описание:</strong> <span id="modalContent"></span></p>
+                    <p><strong>Дедлайн:</strong> <span id="modalDeadline"></span></p>
+                    <p><strong>Статус:</strong> <span id="modalStatus"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для редактирования задачи -->
+    <div class="modal fade" id="editTaskModal" tabindex="-1" style="display: none;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content edit-modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Редактировать задачу</h3>
+                    <button type="button" id="cancelEdit" class="btn-close" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editTaskForm">
+                        <input type="hidden" id="editId">
+                        <div class="mb-3">
+                            <label for="editTitle" class="form-label"><i class="fas fa-heading me-2"></i>Заголовок</label>
+                            <input type="text" class="form-control" id="editTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editContent" class="form-label"><i class="fas fa-align-left me-2"></i>Описание</label>
+                            <textarea class="form-control" id="editContent" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editDeadline" class="form-label"><i class="fas fa-calendar-alt me-2"></i>Дедлайн</label>
+                            <input type="datetime-local" class="form-control" id="editDeadline" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editStatus" class="form-label"><i class="fas fa-check-circle me-2"></i>Статус</label>
+                            <select class="form-select" id="editStatus">
+                                <option value="false">Не выполнено</option>
+                                <option value="true">Выполнено</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100"><i class="fas fa-save me-2"></i>Сохранить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!--<script src="bundle.js"></script>-->
+</body>
+</html>

@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: note-user
+      POSTGRES_PASSWORD: note-password
+      POSTGRES_DB: note
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - course-db-data:/var/lib/postgresql/data  # здесь мы создаем volume для сохранения данных
+    ports:
+      - "54321:5432"
+
+  server:
+    build:
+      context: grpc
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: mydatabase
+      DB_USER: myuser
+      DB_PASSWORD: mypassword
+    ports:
+      - "50051:50051"
+    depends_on:
+      - db
+volumes:
+  course-db-data:  # определяем volume

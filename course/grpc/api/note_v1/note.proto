@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package note_v1;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+option go_package = "github.com/Alexander/productionSite/pkg/note_v1";
+
+service NoteV1{
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc List(ListRequest) returns (ListResponse);
+  rpc Update(UpdateRequest) returns (google.protobuf.Empty);
+  rpc Delete(DeleteRequest) returns (google.protobuf.Empty);
+  rpc CreatePerson(CreatePersonReqest) returns (CreatePersonResponse);
+  rpc LogInPerson(LogInPersonRequest) returns (LogInPersonResponce);
+}
+
+message DishInfo{
+  string name = 1;
+  int64 price = 2;
+  int64 author = 3;
+  string photo_url = 4;
+}
+
+message Person{
+  int64 id = 1;
+  string login = 2;
+  string password = 3;
+}
+
+message CreatePersonReqest{
+  string login = 1;
+  string password = 2;
+  string position = 3;
+}
+
+message CreatePersonResponse{
+  int64 id = 1;
+}
+
+message LogInPersonRequest{
+  string login = 1;
+  string password = 2;
+  string position = 3;
+}
+
+message LogInPersonResponce{
+  int64 id = 1;
+  string position = 2;
+}
+
+message Dish{
+  int64 id = 1;
+  DishInfo info = 2;
+  google.protobuf.Timestamp created_at = 3;
+  google.protobuf.Timestamp updated_at = 4;
+}
+
+message UpdateDishInfo{
+  google.protobuf.StringValue name = 1;
+  google.protobuf.Int64Value price = 2;
+  google.protobuf.Int64Value author = 3;
+  google.protobuf.StringValue position = 4;
+}
+
+message CreateRequest{
+  DishInfo info = 1;
+}
+
+message CreateResponse{
+  int64 id = 1;
+}
+
+message GetRequest{
+  int64 id = 1;
+}
+
+message GetResponse{
+  Dish note = 1;
+}
+
+message ListRequest{
+  int64 personId = 1;
+}
+
+message ListResponse{
+  repeated Dish notes = 1;
+}
+
+message UpdateRequest{
+  int64 id = 1;
+  UpdateDishInfo info = 2;
+}
+
+message DeleteRequest{
+  int64 id = 1;
+}
