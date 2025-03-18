@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for note_v1
+ * @fileoverview gRPC-Web generated client stub for dish_v1
  * @enhanceable
  * @public
  */
@@ -8,7 +8,7 @@
 // versions:
 // 	protoc-gen-grpc-web v1.5.0
 // 	protoc              v5.29.3
-// source: note.proto
+// source: dish.proto
 
 
 /* eslint-disable */
@@ -87,7 +87,7 @@ proto.note_v1.NoteV1PromiseClient =
  *   !proto.note_v1.CreateResponse>}
  */
 const methodDescriptor_NoteV1_Create = new grpc.web.MethodDescriptor(
-  '/note_v1.NoteV1/Create',
+  '/dish_v1.NoteV1/Create',
   grpc.web.MethodType.UNARY,
   proto.note_v1.CreateRequest,
   proto.note_v1.CreateResponse,
@@ -115,7 +115,7 @@ const methodDescriptor_NoteV1_Create = new grpc.web.MethodDescriptor(
 proto.note_v1.NoteV1Client.prototype.create =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/note_v1.NoteV1/Create',
+      '/dish_v1.NoteV1/Create',
       request,
       metadata || {},
       methodDescriptor_NoteV1_Create,
@@ -134,7 +134,7 @@ proto.note_v1.NoteV1Client.prototype.create =
 proto.note_v1.NoteV1PromiseClient.prototype.create =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/note_v1.NoteV1/Create',
+      '/dish_v1.NoteV1/Create',
       request,
       metadata || {},
       methodDescriptor_NoteV1_Create);
@@ -148,7 +148,7 @@ proto.note_v1.NoteV1PromiseClient.prototype.create =
  *   !proto.note_v1.GetResponse>}
  */
 const methodDescriptor_NoteV1_Get = new grpc.web.MethodDescriptor(
-  '/note_v1.NoteV1/Get',
+  '/dish_v1.NoteV1/Get',
   grpc.web.MethodType.UNARY,
   proto.note_v1.GetRequest,
   proto.note_v1.GetResponse,
@@ -176,7 +176,7 @@ const methodDescriptor_NoteV1_Get = new grpc.web.MethodDescriptor(
 proto.note_v1.NoteV1Client.prototype.get =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/note_v1.NoteV1/Get',
+      '/dish_v1.NoteV1/Get',
       request,
       metadata || {},
       methodDescriptor_NoteV1_Get,
@@ -195,7 +195,7 @@ proto.note_v1.NoteV1Client.prototype.get =
 proto.note_v1.NoteV1PromiseClient.prototype.get =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/note_v1.NoteV1/Get',
+      '/dish_v1.NoteV1/Get',
       request,
       metadata || {},
       methodDescriptor_NoteV1_Get);
@@ -209,7 +209,7 @@ proto.note_v1.NoteV1PromiseClient.prototype.get =
  *   !proto.note_v1.ListResponse>}
  */
 const methodDescriptor_NoteV1_List = new grpc.web.MethodDescriptor(
-  '/note_v1.NoteV1/List',
+  '/dish_v1.NoteV1/List',
   grpc.web.MethodType.UNARY,
   proto.note_v1.ListRequest,
   proto.note_v1.ListResponse,
@@ -237,7 +237,7 @@ const methodDescriptor_NoteV1_List = new grpc.web.MethodDescriptor(
 proto.note_v1.NoteV1Client.prototype.list =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/note_v1.NoteV1/List',
+      '/dish_v1.NoteV1/List',
       request,
       metadata || {},
       methodDescriptor_NoteV1_List,
@@ -256,7 +256,7 @@ proto.note_v1.NoteV1Client.prototype.list =
 proto.note_v1.NoteV1PromiseClient.prototype.list =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/note_v1.NoteV1/List',
+      '/dish_v1.NoteV1/List',
       request,
       metadata || {},
       methodDescriptor_NoteV1_List);
@@ -270,7 +270,7 @@ proto.note_v1.NoteV1PromiseClient.prototype.list =
  *   !proto.google.protobuf.Empty>}
  */
 const methodDescriptor_NoteV1_Update = new grpc.web.MethodDescriptor(
-  '/note_v1.NoteV1/Update',
+  '/dish_v1.NoteV1/Update',
   grpc.web.MethodType.UNARY,
   proto.note_v1.UpdateRequest,
   google_protobuf_empty_pb.Empty,
@@ -298,7 +298,7 @@ const methodDescriptor_NoteV1_Update = new grpc.web.MethodDescriptor(
 proto.note_v1.NoteV1Client.prototype.update =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/note_v1.NoteV1/Update',
+      '/dish_v1.NoteV1/Update',
       request,
       metadata || {},
       methodDescriptor_NoteV1_Update,
@@ -317,7 +317,7 @@ proto.note_v1.NoteV1Client.prototype.update =
 proto.note_v1.NoteV1PromiseClient.prototype.update =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/note_v1.NoteV1/Update',
+      '/dish_v1.NoteV1/Update',
       request,
       metadata || {},
       methodDescriptor_NoteV1_Update);
@@ -331,7 +331,7 @@ proto.note_v1.NoteV1PromiseClient.prototype.update =
  *   !proto.google.protobuf.Empty>}
  */
 const methodDescriptor_NoteV1_Delete = new grpc.web.MethodDescriptor(
-  '/note_v1.NoteV1/Delete',
+  '/dish_v1.NoteV1/Delete',
   grpc.web.MethodType.UNARY,
   proto.note_v1.DeleteRequest,
   google_protobuf_empty_pb.Empty,
@@ -359,7 +359,7 @@ const methodDescriptor_NoteV1_Delete = new grpc.web.MethodDescriptor(
 proto.note_v1.NoteV1Client.prototype.delete =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/note_v1.NoteV1/Delete',
+      '/dish_v1.NoteV1/Delete',
       request,
       metadata || {},
       methodDescriptor_NoteV1_Delete,
@@ -378,7 +378,7 @@ proto.note_v1.NoteV1Client.prototype.delete =
 proto.note_v1.NoteV1PromiseClient.prototype.delete =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/note_v1.NoteV1/Delete',
+      '/dish_v1.NoteV1/Delete',
       request,
       metadata || {},
       methodDescriptor_NoteV1_Delete);
@@ -392,7 +392,7 @@ proto.note_v1.NoteV1PromiseClient.prototype.delete =
  *   !proto.note_v1.CreatePersonResponse>}
  */
 const methodDescriptor_NoteV1_CreatePerson = new grpc.web.MethodDescriptor(
-  '/note_v1.NoteV1/CreatePerson',
+  '/dish_v1.NoteV1/CreatePerson',
   grpc.web.MethodType.UNARY,
   proto.note_v1.CreatePersonReqest,
   proto.note_v1.CreatePersonResponse,
@@ -420,7 +420,7 @@ const methodDescriptor_NoteV1_CreatePerson = new grpc.web.MethodDescriptor(
 proto.note_v1.NoteV1Client.prototype.createPerson =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/note_v1.NoteV1/CreatePerson',
+      '/dish_v1.NoteV1/CreatePerson',
       request,
       metadata || {},
       methodDescriptor_NoteV1_CreatePerson,
@@ -439,7 +439,7 @@ proto.note_v1.NoteV1Client.prototype.createPerson =
 proto.note_v1.NoteV1PromiseClient.prototype.createPerson =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/note_v1.NoteV1/CreatePerson',
+      '/dish_v1.NoteV1/CreatePerson',
       request,
       metadata || {},
       methodDescriptor_NoteV1_CreatePerson);
@@ -453,7 +453,7 @@ proto.note_v1.NoteV1PromiseClient.prototype.createPerson =
  *   !proto.note_v1.LogInPersonResponce>}
  */
 const methodDescriptor_NoteV1_LogInPerson = new grpc.web.MethodDescriptor(
-  '/note_v1.NoteV1/LogInPerson',
+  '/dish_v1.NoteV1/LogInPerson',
   grpc.web.MethodType.UNARY,
   proto.note_v1.LogInPersonRequest,
   proto.note_v1.LogInPersonResponce,
@@ -481,7 +481,7 @@ const methodDescriptor_NoteV1_LogInPerson = new grpc.web.MethodDescriptor(
 proto.note_v1.NoteV1Client.prototype.logInPerson =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/note_v1.NoteV1/LogInPerson',
+      '/dish_v1.NoteV1/LogInPerson',
       request,
       metadata || {},
       methodDescriptor_NoteV1_LogInPerson,
@@ -500,7 +500,7 @@ proto.note_v1.NoteV1Client.prototype.logInPerson =
 proto.note_v1.NoteV1PromiseClient.prototype.logInPerson =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/note_v1.NoteV1/LogInPerson',
+      '/dish_v1.NoteV1/LogInPerson',
       request,
       metadata || {},
       methodDescriptor_NoteV1_LogInPerson);

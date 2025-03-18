@@ -11,10 +11,10 @@ get-deps:
 
 
 generate:
-	make generate-note-api
+	make generate-dish-api
 
-generate-note-api:
-	protoc --proto_path=api/note_v1 --go_out=pkg/note_v1 --go_opt=paths=source_relative --plugin=protoc-gen-go=bin/protoc-gen-go.exe --go-grpc_out=pkg/note_v1 --go-grpc_opt=paths=source_relative --plugin=protoc-gen-go-grpc=bin/protoc-gen-go-grpc.exe api/note_v1/note.proto
+generate-dish-api:
+	protoc --proto_path=api/dish_v1 --go_out=pkg/dish_v1 --go_opt=paths=source_relative --plugin=protoc-gen-go=bin/protoc-gen-go.exe --go-grpc_out=pkg/dish_v1 --go-grpc_opt=paths=source_relative --plugin=protoc-gen-go-grpc=bin/protoc-gen-go-grpc.exe api/dish_v1/dish.proto
 
 build:
 	set GOOS=linux

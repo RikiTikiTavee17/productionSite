@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/Masterminds/squirrel"
-	desc "github.com/RikiTikiTavee17/course/grpc/pkg/note_v1"
+	desc "github.com/RikiTikiTavee17/productionSite/course/grpc/pkg/dish_v1"
 	"github.com/brianvoe/gofakeit"
 	"github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/pgxpool"
@@ -39,8 +39,9 @@ const (
 var notes = &SyncMap{elems: make(map[int64]*desc.Note), num: 1}
 var users = &LoginMap{checks: make(map[string]string), idLogin: make(map[int64]string), loginId: make(map[string]int64), num: 1}
 */
+
 type server struct {
-	desc.UnimplementedNoteV1Server
+	desc.UnimplementedDishV1Server
 }
 
 func (s *server) Get(ctx context.Context, req *desc.GetRequest) (*desc.GetResponse, error) {

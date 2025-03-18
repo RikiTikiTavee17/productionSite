@@ -1,14 +1,14 @@
 syntax = "proto3";
 
-package note_v1;
+package dish_v1;
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/Alexander/productionSite/pkg/note_v1";
+option go_package = "github.com/Alexander/productionSite/course/grpc/pkg/dish_v1";
 
-service NoteV1{
+service DishV1{
   rpc Create(CreateRequest) returns (CreateResponse);
   rpc Get(GetRequest) returns (GetResponse);
   rpc List(ListRequest) returns (ListResponse);
