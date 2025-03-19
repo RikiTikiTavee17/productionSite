@@ -9,7 +9,7 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - course-db-data:/var/lib/postgresql/data  # здесь мы создаем volume для сохранения данных
     ports:
-      - "54321:5432"
+      - "5432:5432"
 
   server:
     build:
@@ -18,9 +18,9 @@ services:
     environment:
       DB_HOST: db
       DB_PORT: 5432
-      DB_NAME: mydatabase
-      DB_USER: myuser
-      DB_PASSWORD: mypassword
+      DB_NAME: note
+      DB_USER: note-user
+      DB_PASSWORD: note-password
     ports:
       - "50051:50051"
     depends_on:

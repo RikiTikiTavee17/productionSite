@@ -8,7 +8,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	desc "github.com/RikiTikiTavee17/course/grpc/pkg/dish_v1"
+	desc "github.com/RikiTikiTavee17/productionSite/course/grpc/pkg/dish_v1"
 )
 
 const (

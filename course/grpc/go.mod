@@ -1,4 +1,4 @@
-module github.com/RikiTikiTavee17/course/grpc
+module github.com/RikiTikiTavee17/productionSite/course/grpc
 
 go 1.23.0
 

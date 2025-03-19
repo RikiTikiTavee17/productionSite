@@ -6,7 +6,7 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 
-option go_package = "github.com/Alexander/productionSite/course/grpc/pkg/dish_v1";
+option go_package = "github.com/RikiTikiTavee17/productionSite/course/grpc/pkg/dish_v1";
 
 service DishV1{
   rpc Create(CreateRequest) returns (CreateResponse);
@@ -16,40 +16,23 @@ service DishV1{
   rpc Delete(DeleteRequest) returns (google.protobuf.Empty);
   rpc CreatePerson(CreatePersonReqest) returns (CreatePersonResponse);
   rpc LogInPerson(LogInPersonRequest) returns (LogInPersonResponce);
+  rpc ChangePersonPosition(ChangePersonPositionRequest) returns (ChangePersonPositionResponse);
 }
 
 message DishInfo{
   string name = 1;
   int64 price = 2;
-  int64 author = 3;
-  string photo_url = 4;
+  string description = 3;
+  string composition = 4;
+  int64 author = 5;
+  string photo_url = 6;
 }
 
 message Person{
   int64 id = 1;
   string login = 2;
   string password = 3;
-}
-
-message CreatePersonReqest{
-  string login = 1;
-  string password = 2;
-  string position = 3;
-}
-
-message CreatePersonResponse{
-  int64 id = 1;
-}
-
-message LogInPersonRequest{
-  string login = 1;
-  string password = 2;
-  string position = 3;
-}
-
-message LogInPersonResponce{
-  int64 id = 1;
-  string position = 2;
+  string position = 4;
 }
 
 message Dish{
@@ -62,8 +45,10 @@ message Dish{
 message UpdateDishInfo{
   google.protobuf.StringValue name = 1;
   google.protobuf.Int64Value price = 2;
-  google.protobuf.Int64Value author = 3;
-  google.protobuf.StringValue position = 4;
+  google.protobuf.StringValue description = 3;
+  google.protobuf.StringValue composition = 4;
+  google.protobuf.Int64Value author = 5;
+  google.protobuf.StringValue photo_url = 6;
 }
 
 message CreateRequest{
@@ -83,11 +68,11 @@ message GetResponse{
 }
 
 message ListRequest{
-  int64 personId = 1;
+
 }
 
 message ListResponse{
-  repeated Dish notes = 1;
+  repeated Dish dishes = 1;
 }
 
 message UpdateRequest{
@@ -97,4 +82,33 @@ message UpdateRequest{
 
 message DeleteRequest{
   int64 id = 1;
+}
+
+message CreatePersonReqest{
+  string login = 1;
+  string password = 2;
+  string position = 3;
+}
+
+message CreatePersonResponse{
+  int64 id = 1;
+}
+
+message LogInPersonRequest{
+  string login = 1;
+  string password = 2;
+}
+
+message LogInPersonResponce{
+  int64 id = 1;
+  string position = 2;
+}
+
+message ChangePersonPositionRequest{
+  int64 id = 1;
+  string position = 2;
+}
+
+message ChangePersonPositionResponse{
+  string position = 1;
 }

@@ -1,8 +1,12 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
+	desc "github.com/RikiTikiTavee17/productionSite/course/grpc/pkg/dish_v1"
 	"github.com/go-chi/chi"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 	"log"
 	"math/rand"
 	"net/http"
@@ -97,6 +101,31 @@ func parseNoteID(isStr string) (int64, error) {
 		return 0, err
 	}
 	return id, nil
+}
+
+const (
+	address = "localhost:50051"
+	noteId  = 12
+)
+
+func getGRPCClient() (grpc_service.YourServiceClient, *grpc.ClientConn, error) {
+	conn, err := grpc.Dial(address, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		log.Fatalf("failed to cinnect to server %v", err)
+	}
+	defer conn.Close()
+
+	c := desc.NewNoteV1Client(conn)
+
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
+	defer cancel()
+
+	r, err := c.Get(ctx, &desc.GetRequest{Id: noteId})
+	if err != nil {
+		log.Fatalf("failed to get note %v", err)
+	}
+
+	log.Printf("Note info:%v", r.GetNote())
 }
 
 func main() {

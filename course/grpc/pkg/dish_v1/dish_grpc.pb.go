@@ -30,6 +30,7 @@ type DishV1Client interface {
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
 	CreatePerson(ctx context.Context, in *CreatePersonReqest, opts ...grpc.CallOption) (*CreatePersonResponse, error)
 	LogInPerson(ctx context.Context, in *LogInPersonRequest, opts ...grpc.CallOption) (*LogInPersonResponce, error)
+	ChangePersonPosition(ctx context.Context, in *ChangePersonPositionRequest, opts ...grpc.CallOption) (*ChangePersonPositionResponse, error)
 }
 
 type dishV1Client struct {
@@ -103,6 +104,15 @@ func (c *dishV1Client) LogInPerson(ctx context.Context, in *LogInPersonRequest, 
 	return out, nil
 }
 
+func (c *dishV1Client) ChangePersonPosition(ctx context.Context, in *ChangePersonPositionRequest, opts ...grpc.CallOption) (*ChangePersonPositionResponse, error) {
+	out := new(ChangePersonPositionResponse)
+	err := c.cc.Invoke(ctx, "/dish_v1.DishV1/ChangePersonPosition", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // DishV1Server is the server API for DishV1 service.
 // All implementations must embed UnimplementedDishV1Server
 // for forward compatibility
@@ -114,6 +124,7 @@ type DishV1Server interface {
 	Delete(context.Context, *DeleteRequest) (*emptypb.Empty, error)
 	CreatePerson(context.Context, *CreatePersonReqest) (*CreatePersonResponse, error)
 	LogInPerson(context.Context, *LogInPersonRequest) (*LogInPersonResponce, error)
+	ChangePersonPosition(context.Context, *ChangePersonPositionRequest) (*ChangePersonPositionResponse, error)
 	mustEmbedUnimplementedDishV1Server()
 }
 
@@ -141,6 +152,9 @@ func (UnimplementedDishV1Server) CreatePerson(context.Context, *CreatePersonReqe
 }
 func (UnimplementedDishV1Server) LogInPerson(context.Context, *LogInPersonRequest) (*LogInPersonResponce, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LogInPerson not implemented")
+}
+func (UnimplementedDishV1Server) ChangePersonPosition(context.Context, *ChangePersonPositionRequest) (*ChangePersonPositionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChangePersonPosition not implemented")
 }
 func (UnimplementedDishV1Server) mustEmbedUnimplementedDishV1Server() {}
 
@@ -281,6 +295,24 @@ func _DishV1_LogInPerson_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _DishV1_ChangePersonPosition_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ChangePersonPositionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(DishV1Server).ChangePersonPosition(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/dish_v1.DishV1/ChangePersonPosition",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(DishV1Server).ChangePersonPosition(ctx, req.(*ChangePersonPositionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // DishV1_ServiceDesc is the grpc.ServiceDesc for DishV1 service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -315,6 +347,10 @@ var DishV1_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "LogInPerson",
 			Handler:    _DishV1_LogInPerson_Handler,
+		},
+		{
+			MethodName: "ChangePersonPosition",
+			Handler:    _DishV1_ChangePersonPosition_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
