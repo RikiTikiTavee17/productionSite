@@ -21,22 +21,22 @@ service DishV1{
 
 message DishInfo{
   string name = 1;
-  int64 price = 2;
+  int32 price = 2;
   string description = 3;
   string composition = 4;
-  int64 author = 5;
+  int32 author = 5;
   string photo_url = 6;
 }
 
 message Person{
-  int64 id = 1;
+  int32 id = 1;
   string login = 2;
   string password = 3;
   string position = 4;
 }
 
 message Dish{
-  int64 id = 1;
+  int32 id = 1;
   DishInfo info = 2;
   google.protobuf.Timestamp created_at = 3;
   google.protobuf.Timestamp updated_at = 4;
@@ -56,11 +56,11 @@ message CreateRequest{
 }
 
 message CreateResponse{
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message GetRequest{
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message GetResponse{
@@ -76,12 +76,12 @@ message ListResponse{
 }
 
 message UpdateRequest{
-  int64 id = 1;
+  int32 id = 1;
   UpdateDishInfo info = 2;
 }
 
 message DeleteRequest{
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message CreatePersonReqest{
@@ -91,7 +91,7 @@ message CreatePersonReqest{
 }
 
 message CreatePersonResponse{
-  int64 id = 1;
+  int32 id = 1;
 }
 
 message LogInPersonRequest{
@@ -100,12 +100,12 @@ message LogInPersonRequest{
 }
 
 message LogInPersonResponce{
-  int64 id = 1;
+  int32 id = 1;
   string position = 2;
 }
 
 message ChangePersonPositionRequest{
-  int64 id = 1;
+  int32 id = 1;
   string position = 2;
 }
 
