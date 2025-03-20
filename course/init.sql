@@ -1,17 +1,17 @@
 CREATE TABLE note (
-    id BIGINT PRIMARY KEY,
+    id INT PRIMARY KEY,
     name TEXT NOT NULL,
-    price BIGINT,
+    price INT,
     description TEXT,
-    compositon TEXT,
-    author BIGINT,
+    composition TEXT,
+    author INT,
     photo_url TEXT,
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMP
 );
 
 CREATE TABLE persons (
-    id BIGINT NOT NULL,
+    id INT NOT NULL,
     login TEXT PRIMARY KEY,
     password TEXT NOT NULL,
     position TEXT NOT NULL DEFAULT 'user'

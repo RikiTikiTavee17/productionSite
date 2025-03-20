@@ -67,7 +67,7 @@ func (s *server) Get(ctx context.Context, req *desc.GetRequest) (*desc.GetRespon
 		return nil, errors.New("failed to build query")
 	}
 
-	var id, author, price int64
+	var id, author, price int32
 	var description, composition, photo_url, name string
 	var createdAt time.Time
 	var updatedAt time.Time
@@ -101,7 +101,7 @@ func (s *server) Get(ctx context.Context, req *desc.GetRequest) (*desc.GetRespon
 }
 
 func (s *server) Create(ctx context.Context, req *desc.CreateRequest) (*desc.CreateResponse, error) {
-	var id int64
+	var id int32
 	a := req.GetInfo().GetAuthor()
 	var flag bool = true
 
@@ -113,7 +113,7 @@ func (s *server) Create(ctx context.Context, req *desc.CreateRequest) (*desc.Cre
 	defer pool.Close()
 
 	for flag {
-		id = int64(gofakeit.Uint32())
+		id = int32(gofakeit.Uint16())
 		builderSelect := squirrel.Select("id").
 			From("note").
 			PlaceholderFormat(squirrel.Dollar).
@@ -355,7 +355,7 @@ func (s *server) List(ctx context.Context, req *desc.ListRequest) (*desc.ListRes
 		return nil, errors.New("failed to build query")
 	}
 
-	var id, author, price int64
+	var id, author, price int32
 	var description, composition, photo_url, name string
 	var createdAt time.Time
 	var updatedAt time.Time
@@ -397,7 +397,7 @@ func (s *server) CreatePerson(ctx context.Context, req *desc.CreatePersonReqest)
 	}
 	defer pool.Close()
 
-	author := gofakeit.Int64()
+	author := int32(gofakeit.Uint16())
 	flag := true
 	for flag {
 		builderSelect := squirrel.Select("id").
@@ -409,10 +409,10 @@ func (s *server) CreatePerson(ctx context.Context, req *desc.CreatePersonReqest)
 		if err != nil {
 			log.Fatalf("failed to build query: %v", err)
 		}
-		var id int64
+		var id int32
 		err = pool.QueryRow(ctx, query, args...).Scan(&id)
 		if errors.Is(err, pgx.ErrNoRows) {
-			author = int64(gofakeit.Uint32())
+			author = int32(gofakeit.Uint16())
 			flag = false
 		}
 	}
@@ -473,7 +473,7 @@ func (s *server) LogInPerson(ctx context.Context, req *desc.LogInPersonRequest) 
 	if err != nil {
 		log.Fatalf("failed to build query: %v", err)
 	}
-	var id int64
+	var id int32
 	var password, position string
 	err = pool.QueryRow(ctx, query, args...).Scan(&id, &login, &password, &position)
 	if errors.Is(err, pgx.ErrNoRows) {
